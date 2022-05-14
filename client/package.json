@@ -37,6 +37,7 @@
     ]
   },
   "main": "index.js",
+  "proxy": "http://localhost:3001",
   "devDependencies": {},
   "keywords": [],
   "author": "",
