@@ -16,8 +16,6 @@
     "express": "^4.18.1",
     "nodemon": "^2.0.16",
     "redis": "^4.1.0",
-    "response-time": "^2.3.2",
-    "sequelize": "^6.19.0",
-    "sqlite3": "^5.0.8"
+    "response-time": "^2.3.2"
   }
 }
