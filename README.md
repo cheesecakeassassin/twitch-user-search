@@ -51,6 +51,8 @@ Click on the channel name to open a tab to their Twitch channel, or simply view 
 
 ![afterTwitchSearch](https://user-images.githubusercontent.com/7333111/168490859-b9f90099-a8e8-4605-9351-c0fce71569f6.png)
 
+**In the deploymed app, you can make direct calls to the API with ```/users/<username>```, you will even be given the time until the cache expires for a user.
+  
 ## Contribution:
 
 Built by Sebastian Santa
