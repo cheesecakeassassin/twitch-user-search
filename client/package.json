@@ -2,14 +2,15 @@
   "name": "twitch-user-search-client",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://localhost:3001",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.2.0",
     "@testing-library/user-event": "^13.5.0",
+    "axios": "^0.27.2",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "react-scripts": "5.0.1",
-    "sqlite3": "^5.0.8",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -37,8 +38,6 @@
     ]
   },
   "main": "index.js",
-  "proxy": "http://localhost:3001",
-  "devDependencies": {},
   "keywords": [],
   "author": "",
   "license": "ISC",

@@ -2,8 +2,11 @@ import React from 'react';
 
 function InitialScreen() {
 
-  function handleSubmit(e) {
-    e.preventDefault();
+  function handleSubmit(event) {
+    event.preventDefault();
+
+    let username = event.target.name;
+    console.log(username.value);
   }
 
   return (
