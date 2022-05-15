@@ -1,0 +1,81 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  /* border: 1px solid red; */
+}
+
+a {
+  text-decoration: none;
+  color: rgb(255, 111, 89);
+}
+
+#user-search {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 300px;
+}
+
+input, .channel, .followers {
+  height: 48px;
+  display: inline-block;
+  border: 2px solid rgb(35, 58, 140);
+  border-radius: 6px;
+  box-sizing: border-box;
+  color: rgb(232, 230, 227);
+  background-color: transparent;
+}
+
+input {
+  margin-right: 7px;
+  width: 300px;
+  padding: 12px 43px;
+}
+
+.submit {
+  font-family: Inter, sans-serif;
+  margin-left: 7px;
+  font-size: 16px;
+  height: 48px;
+  padding-right: 24px;
+  padding-left: 24px;
+  -webkit-box-pack: center;
+  -webkit-box-align: center;
+  border: 2px solid rgb(35, 58, 140);
+  border-radius: 6px;
+  font-weight: 600;
+  background-color: transparent;
+  transition: background-color 0.5s, color 0.5s;
+}
+
+.submit:hover {
+  background-color: rgb(35, 58, 140);
+}
+
+.w-button {
+  color: rgb(232, 230, 227);
+  text-decoration-color: initial;
+  padding: 9px 15px;
+  line-height: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.channel {
+  margin-right: 7px;
+  font-size: 16px;
+  padding: 13px 24px;
+  width: auto;
+}
+
+.followers {
+  margin-left: 7px;
+  font-size: 16px;
+  padding: 13px 24px;
+  width: auto;
+}
+
+.followers span {
+  color: rgb(78, 137, 211);
+}
