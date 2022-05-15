@@ -6,9 +6,11 @@ function UserSearch() {
   const [hasSearched, setHasSearched] = useState(false);
   const [user, setUser] = useState('');
   const [followers, setFollowers] = useState('');
+  const [formInput, setFormInput] = useState('');
 
   function handleSubmit(event) {
     event.preventDefault();
+    setFormInput('');
 
     if (!hasSearched) {
       setHasSearched(true);
@@ -30,6 +32,10 @@ function UserSearch() {
           <input
             type='text'
             name='name'
+            value={formInput}
+            onChange={e => {
+              setFormInput(e.target.value)
+            }}
             placeholder='Enter your favorite Twitch channel...'
             autoComplete='off'
           />
@@ -37,14 +43,14 @@ function UserSearch() {
         <button type='submit' className='submit w-button'>
           Submit
         </button>
-
+        <hr></hr>
         {hasSearched && (
           <div className='results'>
-            <h3 className='channel'>
+            <h3>
               Twitch channel:{' '}
               <a href={`https://www.twitch.tv/${user}`} target='_blank' rel='noreferrer noopener'>{user}</a>
+              &emsp;&emsp;Follower count: <span>{followers.toLocaleString()}</span>
             </h3>
-            <h3 className='followers'>Follower count: <span>{followers.toLocaleString()}</span></h3>
           </div>
         )}
       </form>

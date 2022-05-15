@@ -17,7 +17,7 @@ a {
   margin: 300px;
 }
 
-input, .channel, .followers {
+input, .results {
   height: 48px;
   display: inline-block;
   border: 2px solid rgb(35, 58, 140);
@@ -29,8 +29,12 @@ input, .channel, .followers {
 
 input {
   margin-right: 7px;
-  width: 300px;
-  padding: 12px 43px;
+  width: 445px;
+  padding: 12px 24px;
+}
+
+hr { 
+  flex-basis: 100%; height: 0; margin: 0; border: 0;
 }
 
 .submit {
@@ -62,20 +66,21 @@ input {
   cursor: pointer;
 }
 
+.results {
+  margin-top: 14px;
+  font-size: 16px;
+  padding: 11px 24px;
+  width: auto;
+}
+
 .channel {
   margin-right: 7px;
-  font-size: 16px;
-  padding: 13px 24px;
-  width: auto;
 }
 
 .followers {
   margin-left: 7px;
-  font-size: 16px;
-  padding: 13px 24px;
-  width: auto;
 }
 
-.followers span {
+.results span {
   color: rgb(78, 137, 211);
 }
