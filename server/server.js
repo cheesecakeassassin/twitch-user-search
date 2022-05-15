@@ -1,9 +1,8 @@
+require('dotenv').config(); // Safeguard confidential information
 const express = require('express'); // Web server
 const path = require('path'); // Allows easy path modifications
 const axios = require('axios'); // HTTP request helper
 const Redis = require('redis'); // In-memory caching db
-const responseTime = require('response-time'); // API call stopwatch
-require('dotenv').config(); // Safeguard confidential information
 
 // Redis client used to quickly cache using RAM
 let redisClient;
@@ -28,9 +27,8 @@ const DEFAULT_USERID = '81995906';
 const PORT = process.env.PORT || 3001;
 const app = express();
 
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(responseTime());
 
 app.get('/users/:username', async (req, res) => {
   let username = req.params.username;
