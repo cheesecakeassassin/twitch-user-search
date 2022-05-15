@@ -11,7 +11,6 @@
 * [Installation](#installation)
 * [Usage](#usage)
 * [Contribution](#contribution)
-* [Testing](#testing)
 * [Additional Info](#additional-info)
 
 ## Description:
@@ -25,7 +24,7 @@ A single page application that uses the Twitch API to get a channel's follower c
 * ExpressJS
 * Axios
 * Redis
-* HTML/CSS
+* JavaScript/HTML/CSS
 * Heroku
 
 ## Installation:
@@ -38,7 +37,7 @@ A single page application that uses the Twitch API to get a channel's follower c
 
 ## Usage:
 
-Skip installation and go straight to the deployed app!
+Skip installation and jump straight into the deployed app!
 https://twitch-user-search.herokuapp.com/
 
 
