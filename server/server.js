@@ -10,8 +10,7 @@ let redisClient;
 
 if (process.env.NODE_ENV === 'production') {
   // For Heroku deployment
-  app.use(express.static(path.join(__dirname, '../client/build')));
-  redisClient = Redis.createClient({url: process.env.REDIS_URL});
+  redisClient = Redis.createClient({ url: process.env.REDIS_URL });
 } else {
   // For local usage
   redisClient = Redis.createClient();
@@ -23,8 +22,8 @@ redisClient.on('connect', () => {
 });
 
 const DEFAULT_EXPIRATION = 300; // 5 minute lifetime for cached items
-const DEFAULT_USERNAME = 'cheesecake_assassin'
-const DEFAULT_USERID = '81995906'
+const DEFAULT_USERNAME = 'cheesecake_assassin';
+const DEFAULT_USERID = '81995906';
 
 const PORT = process.env.PORT || 3001;
 const app = express();
@@ -39,8 +38,7 @@ app.get('/users/:username', async (req, res) => {
   if (userData != null) {
     console.log(`${username} is $$$CACHED$$$`);
     console.log(
-      'Seconds until expiration: ' +
-        (await redisClient.ttl(username))
+      'Seconds until expiration: ' + (await redisClient.ttl(username))
     );
     return res.json({
       user: username,
@@ -60,7 +58,7 @@ app.get('/users/:username', async (req, res) => {
     );
     let userId;
     if (data.data.length === 0) {
-      username = DEFAULT_USERNAME
+      username = DEFAULT_USERNAME;
       userId = DEFAULT_USERID;
     } else {
       userId = data.data[0].id;
@@ -90,6 +88,10 @@ const cacheUser = async (username, id) => {
   console.log('follower count: ' + data.total);
   return data.total;
 };
+
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static(path.join(__dirname, '../client/build')));
+}
 
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '../client/build/index.html'));
