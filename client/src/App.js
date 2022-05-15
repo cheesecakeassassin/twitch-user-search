@@ -1,4 +1,3 @@
-import './App.css';
 import UserSearch from './components/UserSearch';
 
 function App() {
