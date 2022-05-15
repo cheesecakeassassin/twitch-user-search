@@ -1,4 +1,5 @@
 const express = require('express'); // Web server
+const path = require('path'); // Allows easy path modifications
 const axios = require('axios'); // HTTP request helper
 const Redis = require('redis'); // In-memory caching db
 const responseTime = require('response-time'); // API call stopwatch
@@ -73,6 +74,14 @@ const cacheUser = async (username, id) => {
   console.log('follower count: ' + data.total);
   return data.total;
 };
+
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static(path.join(__dirname, '../client/build')));
+}
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../client/build/index.html'));
+});
 
 app.listen(PORT, () => {
   console.log(`API server running on port ${PORT}!`);
