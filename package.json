@@ -24,7 +24,6 @@
   "homepage": "https://github.com/cheesecakeassassin/twitch-user-search#readme",
   "dependencies": {
     "concurrently": "^7.1.0",
-    "heroku": "^7.60.2",
     "serve": "^13.0.2"
   }
 }
