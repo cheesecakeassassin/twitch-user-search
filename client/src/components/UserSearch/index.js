@@ -9,7 +9,7 @@ function UserSearch() {
   function handleSubmit(event) {
     event.preventDefault();
 
-    setHasSearched(true);
+    if (!hasSearched) { setHasSearched(true) }
 
     let username = event.target.name.value;
     console.log(username);
@@ -35,7 +35,7 @@ function UserSearch() {
       {hasSearched && (
         <div>
           <h3>{user}</h3>
-          <h3>{followers}</h3>
+          <h3>{followers.toLocaleString()}</h3>
         </div>
       )}
     </section>
