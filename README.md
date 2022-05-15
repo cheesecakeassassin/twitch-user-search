@@ -1,4 +1,6 @@
-# Twitch User Search## Licensing:
+# Twitch User Search
+
+## Licensing:
 
 [![license](https://img.shields.io/badge/license-MIT-blue)](https://shields.io)
 
