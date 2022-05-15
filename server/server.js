@@ -25,7 +25,7 @@ if (process.env.NODE_ENV === 'production') {
 redisClient.connect();
 redisClient.on('connect', () => {
   console.log('Connected to Redis...');
-});
+}); 
 
 const DEFAULT_EXPIRATION = 300; // Default lifetime for cached items (5 minutes)
 const DEFAULT_USERNAME = 'cheesecake_assassin'; // Default username if invalid name is given
