@@ -6,8 +6,8 @@ const responseTime = require('response-time'); // API call stopwatch
 require('dotenv').config(); // Safeguard confidential information
 
 // Redis client used to quickly cache using RAM
-// const redisClient = Redis.createClient();
-const redisClient = Redis.createClient({url: process.env.REDIS_URL});
+const redisClient = Redis.createClient();
+// const redisClient = Redis.createClient({url: process.env.REDIS_URL});
 
 redisClient.connect();
 redisClient.on('connect', () => {
