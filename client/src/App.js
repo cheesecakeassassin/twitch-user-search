@@ -1,13 +1,11 @@
 import './App.css';
-import InitialScreen from './components/InitialScreen';
-import ResultsScreen from './components/ResultsScreen';
+import UserSearch from './components/UserSearch';
 
 function App() {
   return (
     <div>
       <main>
-        <InitialScreen></InitialScreen>
-        <ResultsScreen></ResultsScreen>
+        <UserSearch></UserSearch>
       </main>
     </div>
   );

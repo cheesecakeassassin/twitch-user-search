@@ -29,7 +29,7 @@ app.get('/users/:username', async (req, res) => {
         (await redisClient.ttl(req.params.username))
     );
     return res.json({
-      cachedUser: req.params.username,
+      user: req.params.username,
       followers: JSON.parse(userData),
       cache_expiration: await redisClient.ttl(req.params.username),
     });
@@ -40,7 +40,7 @@ app.get('/users/:username', async (req, res) => {
       {
         headers: {
           'Client-Id': `${process.env.CLIENT_ID}`,
-          Authorization: `${process.env.AUTHORIZATION}`,
+          Authorization: `Bearer ${process.env.AUTHORIZATION}`,
         },
       }
     );
@@ -62,7 +62,7 @@ const cacheUser = async (username, id) => {
     {
       headers: {
         'Client-Id': `${process.env.CLIENT_ID}`,
-        Authorization: `${process.env.AUTHORIZATION}`,
+        Authorization: `Bearer ${process.env.AUTHORIZATION}`,
       },
     }
   );
