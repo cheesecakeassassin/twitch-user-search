@@ -148,7 +148,26 @@ for extra large screens like TV. */
   }
 }
 
-@media only screen and (min-width: 320px) and (max-width: 480px) {
+@media only screen and (min-width: 407px) and (max-width: 480px) {
+  input {
+    width: 260px;
+  }
+
+  .results {
+    width: 300px;
+    font-size: 13px;
+    padding: 0px 0px;
+    padding-top: 3px;
+    padding-left: 50px;
+  }
+
+  #user-search {
+    margin: 14px;
+    margin-top: 80px;
+  }
+}
+
+@media only screen and (min-width: 320px) and (max-width: 406px) {
   input {
     width: 170px;
   }
