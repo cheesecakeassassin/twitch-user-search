@@ -22,10 +22,11 @@ a {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin: 300px;
+  margin: 250px;
 }
 
-input, .results {
+input,
+.results {
   height: 48px;
   display: inline-block;
   border: 2px solid rgb(35, 58, 140);
@@ -41,8 +42,11 @@ input {
   padding: 12px 24px;
 }
 
-hr { 
-  flex-basis: 100%; height: 0; margin: 0; border: 0;
+hr {
+  flex-basis: 100%;
+  height: 0;
+  margin: 0;
+  border: 0;
 }
 
 .submit {
@@ -91,4 +95,74 @@ hr {
 
 .results span {
   color: rgb(78, 137, 211);
+}
+
+/* Common breakpoints are 320px — 480px for mobile devices, 
+481px — 768px for iPads & tablets, 769px — 1024px for small screens like 
+laptop, 1025px — 1200px for large screens like Desktops, and 1201px and above 
+for extra large screens like TV. */
+
+@media only screen and (min-width: 1025px) and (max-width: 1200px) {
+  input {
+    width: 400px;
+  }
+
+  .results {
+    font-size: 15px;
+    padding: 10px 20px;
+  }
+
+  #user-search {
+    margin: 200px;
+  }
+}
+
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+  input {
+    width: 375px;
+  }
+
+  .results {
+    font-size: 14px;
+    padding: 11px 15px;
+  }
+
+  #user-search {
+    margin: 120px;
+  }
+}
+
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+  input {
+    width: 300px;
+  }
+
+  .results {
+    font-size: 13px;
+    padding: 12px 10px;
+  }
+
+  #user-search {
+    margin: 30px;
+    margin-top: 120px;
+  }
+}
+
+@media only screen and (min-width: 320px) and (max-width: 480px) {
+  input {
+    width: 170px;
+  }
+
+  .results {
+    width: 260px;
+    font-size: 12px;
+    padding: 0px 0px;
+    padding-top: 4px;
+    padding-left: 40px;
+  }
+
+  #user-search {
+    margin: 14px;
+    margin-top: 80px;
+  }
 }
