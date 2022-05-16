@@ -18,13 +18,13 @@ A single page application that uses the Twitch API to search Twitch channels, re
 
 ## Technologies Used
 
-* ReactJS
-* NodeJS
-* ExpressJS
-* Axios
-* Redis
-* JavaScript/HTML/CSS
-* Heroku
+* ReactJS (Frontend framework)
+* NodeJS (Backend)
+* ExpressJS (Web server)
+* Axios (HTTP Requests)
+* Redis (Caching database)
+* CSS (Frontend styling)
+* Heroku (Application deployment)
 
 ## Installation:
 
