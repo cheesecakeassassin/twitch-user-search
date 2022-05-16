@@ -43,12 +43,12 @@ https://twitch-user-search.herokuapp.com/
 
 Search the name of your favorite Twitch channels
 
-![beforeTwitchSearch](https://user-images.githubusercontent.com/7333111/168490534-0c9a6c5b-27dd-4e64-9022-88d78ace9eaf.png)
+![beforeUserSearch](https://user-images.githubusercontent.com/7333111/168503445-1e77d078-a835-494c-9044-0d2852855b8a.png)
 
 
 Click on the channel name to open a tab to their Twitch channel, or simply view their follower count and search another name
 
-![afterTwitchSearch](https://user-images.githubusercontent.com/7333111/168490859-b9f90099-a8e8-4605-9351-c0fce71569f6.png)
+![afterUserSearch](https://user-images.githubusercontent.com/7333111/168503461-4f8e6906-b432-4129-8a23-bd3c95e3768f.png)
 
 **In the deploymed app, you can make direct calls to the API with ```/users/<username>```, you will even be given the time until the cache expires for a user.
   
