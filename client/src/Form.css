@@ -22,7 +22,7 @@ a {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin: 250px;
+  margin: 50px 250px 50px 250px;
 }
 
 input,
@@ -97,11 +97,6 @@ hr {
   color: rgb(78, 137, 211);
 }
 
-/* Common breakpoints are 320px — 480px for mobile devices, 
-481px — 768px for iPads & tablets, 769px — 1024px for small screens like 
-laptop, 1025px — 1200px for large screens like Desktops, and 1201px and above 
-for extra large screens like TV. */
-
 @media only screen and (min-width: 1025px) and (max-width: 1200px) {
   input {
     width: 400px;
@@ -113,7 +108,7 @@ for extra large screens like TV. */
   }
 
   #user-search {
-    margin: 200px;
+    margin: 50px 200px 50px 200px;
   }
 }
 
@@ -128,7 +123,7 @@ for extra large screens like TV. */
   }
 
   #user-search {
-    margin: 120px;
+    margin: 50px 120px 50px 120px;
   }
 }
 
@@ -138,13 +133,15 @@ for extra large screens like TV. */
   }
 
   .results {
+    width: 300px;
     font-size: 13px;
-    padding: 12px 10px;
+    padding: 3px 10px;
+    padding-left: 50px;
   }
 
   #user-search {
     margin: 30px;
-    margin-top: 120px;
+    margin-top: 50px 120px 50px 120px;
   }
 }
 
@@ -163,7 +160,7 @@ for extra large screens like TV. */
 
   #user-search {
     margin: 14px;
-    margin-top: 80px;
+    margin-top: 40px;
   }
 }
 
@@ -182,6 +179,6 @@ for extra large screens like TV. */
 
   #user-search {
     margin: 14px;
-    margin-top: 80px;
+    margin-top: 40px;
   }
 }
