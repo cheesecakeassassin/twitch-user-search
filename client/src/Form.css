@@ -129,14 +129,14 @@ hr {
 
 @media only screen and (min-width: 481px) and (max-width: 768px) {
   input {
-    width: 300px;
+    width: 138px;
   }
 
   .results {
-    width: 375px;
-    font-size: 13px;
-    padding: 3px 10px;
-    padding-left: 45px;
+    width: 250px;
+    font-size: 11px;
+    padding-top: 6px;
+    padding-left: 16px;
   }
 
   #user-search {
