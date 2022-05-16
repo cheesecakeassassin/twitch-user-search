@@ -7,7 +7,7 @@
 ## Table of Contents
 
 * [Description](#description)
-* [Technology Used](#technology-used)
+* [Technologies Used](#technologies-used)
 * [Installation](#installation)
 * [Usage](#usage)
 * [Contribution](#contribution)
@@ -17,7 +17,7 @@
 
 A single page application that uses the Twitch API to get a channel's follower count.
 
-## Technology Used
+## Technologies Used
 
 * ReactJS
 * NodeJS
