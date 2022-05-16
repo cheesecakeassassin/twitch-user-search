@@ -21,11 +21,14 @@ if (process.env.NODE_ENV === 'production') {
   // For local usage
   redisClient = Redis.createClient();
 }
+// Printing status updates for Redis
+redisClient.on('error', (err) => console.error('Redis error...', err));
+redisClient.on('connect', () => console.log('Redis is connected...'));
+redisClient.on('reconnecting', () => console.log('Redis is reconnecting...'));
+redisClient.on('ready', () => console.log('Redis is ready...'));
+
 // Connects client to redis-server
 redisClient.connect();
-redisClient.on('connect', () => {
-  console.log('Connected to Redis...');
-}); 
 
 const DEFAULT_EXPIRATION = 300; // Default lifetime for cached items (5 minutes)
 const DEFAULT_USERNAME = 'cheesecake_assassin'; // Default username if invalid name is given
@@ -35,7 +38,7 @@ const DEFAULT_USERID = '81995906'; // Default user ID if invalid name is given
 app.get('/users/:username', async (req, res) => {
   // Let instead of const because username will be modified if invalid
   let username = req.params.username;
-  
+
   const userData = await redisClient.get(username); // Gets user from cache
 
   // If user is in cache, data will be immediately served
@@ -63,7 +66,8 @@ app.get('/users/:username', async (req, res) => {
     if (data.data.length === 0) {
       username = DEFAULT_USERNAME;
       userId = DEFAULT_USERID;
-    } else { // if valid
+    } else {
+      // if valid
       userId = data.data[0].id;
     }
 
