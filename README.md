@@ -10,12 +10,11 @@
 * [Technologies Used](#technologies-used)
 * [Installation](#installation)
 * [Usage](#usage)
-* [Contribution](#contribution)
 * [Additional Info](#additional-info)
 
 ## Description:
 
-A single page application that uses the Twitch API to get a channel's follower count.
+A single page application that uses the Twitch API to search Twitch channels, retrieve their follower count, and provide a link to their channel.
 
 ## Technologies Used
 
@@ -51,14 +50,7 @@ https://twitch-user-search.herokuapp.com/
 
 ![afterUserSearch](https://user-images.githubusercontent.com/7333111/168503461-4f8e6906-b432-4129-8a23-bd3c95e3768f.png)
   
-## Contribution:
-
-Built by Sebastian Santa
 
 ## Additional Info:
 
-Github:
-
-[Sebastian Santa](https://github.com/cheesecakeassassin)
-
-Send me an email for more questions about this project @ santasebastian@yahoo.com!
+Send me an email for any questions about this project @ santasebastian@yahoo.com!
