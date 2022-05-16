@@ -37,17 +37,17 @@ A single page application that uses the Twitch API to get a channel's follower c
 
 ## Usage:
 
-Skip installation and jump straight into the deployed app!
+**Skip installation and jump straight into the deployed app!**
 https://twitch-user-search.herokuapp.com/
 
-**On the deploymed app, you can make direct calls to the API with ```/users/<username>```, you will even be given the time until the cache expires for a user.**
+**On the deploymed app, you can make direct calls to the API with ```/users/<username>``` endpoint, you will even be given the time until the cache expires for a user.**
 
-Search the name of your favorite Twitch channels
+**Search the name of your favorite Twitch channels**
 
 ![beforeUserSearch](https://user-images.githubusercontent.com/7333111/168503445-1e77d078-a835-494c-9044-0d2852855b8a.png)
 
 
-Click on the channel name to open a tab to their Twitch channel, or simply view their follower count and search another name
+**Click on the channel name to open a tab to their Twitch channel, or simply view their follower count and search another name**
 
 ![afterUserSearch](https://user-images.githubusercontent.com/7333111/168503461-4f8e6906-b432-4129-8a23-bd3c95e3768f.png)
   
