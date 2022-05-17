@@ -17,6 +17,8 @@ let redisClient;
 if (process.env.NODE_ENV === 'production') {
   // For Heroku deployment
   redisClient = Redis.createClient({ url: process.env.REDIS_URL });
+  // Build to use for Heroku deployment
+  app.use(express.static(path.join(__dirname, '../client/build')));
 } else {
   // For local usage
   redisClient = Redis.createClient();
@@ -112,11 +114,6 @@ app.get('/users/:username', async (req, res) => {
     });
   }
 });
-
-// Build to use when deploying to heroku
-if (process.env.NODE_ENV === 'production') {
-  app.use(express.static(path.join(__dirname, '../client/build')));
-}
 
 // Redirects all random endpoints to the homepage
 app.get('*', (req, res) => {
