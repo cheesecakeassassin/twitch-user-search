@@ -13,8 +13,8 @@ function UserSearch() {
   function handleSubmit(event) {
     event.preventDefault();
     // Validates entry to make sure it isn't empty
-    if (formInput === '') {
-      alert('Invalid entry: empty string.');
+    if (formInput === '' || formInput[0] === '_') {
+      alert('Invalid entry...');
     } else {
       setFormInput(''); // Resets form
 
