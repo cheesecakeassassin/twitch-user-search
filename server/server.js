@@ -49,8 +49,9 @@ const twitchUserRequest = async (url) => {
       Authorization: `Bearer ${process.env.AUTHORIZATION}`,
     },
   });
+
   // Returns follower count or general user info depending on API call made
-  if (data.data.total) {
+  if (data.data.total || data.data.total === 0) {
     return data.data.total;
   } else {
     return data.data.data[0];
@@ -116,7 +117,6 @@ app.get('/users/:username', async (req, res) => {
 
     // Caches the follower count of the user searched
     redisClient.setEx(username, DEFAULT_EXPIRATION, JSON.stringify(followers));
-    console.log('caching user');
     // API response once data is cached
     res.status(200).json({
       cacheStatus: 'Success!',
