@@ -10,22 +10,21 @@
 * [Technologies Used](#technologies-used)
 * [Installation](#installation)
 * [Usage](#usage)
-* [Contribution](#contribution)
 * [Additional Info](#additional-info)
 
 ## Description:
 
-A single page application that uses the Twitch API to get a channel's follower count.
+A single page application that uses the Twitch API to search Twitch channels, retrieve their follower count, and provide a link to their channel.
 
 ## Technologies Used
 
-* ReactJS
-* NodeJS
-* ExpressJS
-* Axios
-* Redis
-* JavaScript/HTML/CSS
-* Heroku
+* ReactJS (Frontend framework)
+* NodeJS (Environment)
+* ExpressJS (Web server)
+* Axios (HTTP Requests)
+* Redis (Caching database)
+* CSS (Frontend styling)
+* Heroku (Application deployment)
 
 ## Installation:
 
@@ -37,29 +36,21 @@ A single page application that uses the Twitch API to get a channel's follower c
 
 ## Usage:
 
-Skip installation and jump straight into the deployed app!
+**Skip installation and jump straight into the deployed app!**
 https://twitch-user-search.herokuapp.com/
 
+**On the deploymed app, you can make direct calls to the API with ```/users/<username>``` endpoint, you will even be given the time until the cache expires for a previously searched user**
 
-Search the name of your favorite Twitch channels
+**Search the name of your favorite Twitch channels**
 
 ![beforeUserSearch](https://user-images.githubusercontent.com/7333111/168503445-1e77d078-a835-494c-9044-0d2852855b8a.png)
 
 
-Click on the channel name to open a tab to their Twitch channel, or simply view their follower count and search another name
+**Click on the channel name to open a tab to their Twitch channel, or simply view their follower count and search another name**
 
 ![afterUserSearch](https://user-images.githubusercontent.com/7333111/168503461-4f8e6906-b432-4129-8a23-bd3c95e3768f.png)
-
-**In the deploymed app, you can make direct calls to the API with ```/users/<username>```, you will even be given the time until the cache expires for a user.
   
-## Contribution:
-
-Built by Sebastian Santa
 
 ## Additional Info:
 
-Github:
-
-[Sebastian Santa](https://github.com/cheesecakeassassin)
-
-Send me an email for more questions about this project @ santasebastian@yahoo.com!
+Send me an email for any questions about this project @ santasebastian@yahoo.com!
