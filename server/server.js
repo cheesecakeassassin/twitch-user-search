@@ -1,7 +1,7 @@
-require('dotenv').config(); // Safeguarding private keys in a .env file
+require('dotenv').config(); // Safeguarding private keys in .env file
 const express = require('express'); // Web server
-const path = require('path'); // Allows easy path modifications
-const axios = require('axios'); // HTTP request helper
+const path = require('path'); // Allows easy modifications to path
+const axios = require('axios'); // HTTP requests
 const Redis = require('redis'); // In-memory caching db
 
 // Declaring port for server to be hosted on
@@ -34,76 +34,84 @@ const DEFAULT_EXPIRATION = 300; // Default lifetime for cached items (5 minutes)
 const DEFAULT_USERNAME = 'cheesecake_assassin'; // Default username if invalid name is given
 const DEFAULT_USERID = '81995906'; // Default user ID if invalid name is given
 
-// Creates endpoint that
+/**
+ * Facilitates making user requests to the Twitch API
+ * @param url gets the url to make a Twitch API request to
+ * @returns follower count or general user info
+ */
+const twitchUserRequest = async (url) => {
+  const data = await axios.get(url, {
+    headers: {
+      // Used for OAuth authorization that Twitch API requires
+      'Client-Id': `${process.env.CLIENT_ID}`,
+      Authorization: `Bearer ${process.env.AUTHORIZATION}`,
+    },
+  });
+  // Returns follower count or general user info depending on API call made
+  if (data.data.total) {
+    return data.data.total;
+  } else {
+    return data.data.data[0];
+  }
+};
+
+// Endpoint that gets user name and follower count and caches them for 5 minutes
 app.get('/users/:username', async (req, res) => {
-  // Let instead of const because username will be modified if invalid
-  let username = req.params.username;
+  // Username is set to lowercase to prevent multiple caches for the same name
+  const username = req.params.username.toLowerCase();
 
-  const userData = await redisClient.get(username); // Gets user from cache
+  const cachedUserData = await redisClient.get(username); // Gets user from cache
 
-  // If user is in cache, data will be immediately served
-  if (userData != null) {
+  // If user is in cache, data will be instantly retrieved from cache
+  if (cachedUserData != null) {
     return res.status(200).json({
-      user: username,
-      followers: JSON.parse(userData),
+      user: await redisClient.get(`_${username}`),
+      followers: cachedUserData,
       cache_expiration: await redisClient.ttl(username),
     });
   } else {
     // Fetch data from API if user is not in cache
-    const { data } = await axios.get(
-      `https://api.twitch.tv/helix/users?login=${username}`,
-      {
-        headers: {
-          'Client-Id': `${process.env.CLIENT_ID}`,
-          Authorization: `Bearer ${process.env.AUTHORIZATION}`,
-        },
-      }
+    const userData = await twitchUserRequest(
+      `https://api.twitch.tv/helix/users?login=${username}`
     );
+
     // Stores user ID once it is known if the user entered is valid
     let userId;
 
-    // If invalid
-    if (data.data.length === 0) {
+    // If name doesn't exist then default to my channel
+    if (userData == null) {
       username = DEFAULT_USERNAME;
       userId = DEFAULT_USERID;
-    } else {
-      // if valid
-      userId = data.data[0].id;
-    }
 
+      // Caches my channel in case another invalid name is typed or someone actually looks me up
+      redisClient.setEx(`_${username}`, DEFAULT_EXPIRATION, username);
+    } else {
+      // If valid username
+      userId = userData.id;
+
+      // Caches the user's display name with correct capitalization for display
+      redisClient.setEx(
+        `_${username}`,
+        DEFAULT_EXPIRATION,
+        userData.display_name
+      );
+    }
     // Gets follower count from cacheUser method that fetches followers before caching
-    const followers = await cacheUser(username, userId);
+    const followers = await twitchUserRequest(
+      `https://api.twitch.tv/helix/users/follows?to_id=${userId}`
+    );
+
+    // Caches the follower count of the user searched
+    redisClient.setEx(username, DEFAULT_EXPIRATION, JSON.stringify(followers));
 
     // API response once data is cached
     res.status(200).json({
       cacheStatus: 'Success!',
-      user: username,
+      user: userData.display_name,
       followers: followers,
     });
   }
 });
-
-/**
- * Caches user with a 5 minute expiration using Redis
- * @param username username to be cached
- * @param id user ID to fetch follower count
- * @returns folower count
- */
-const cacheUser = async (username, id) => {
-  const { data } = await axios.get(
-    `https://api.twitch.tv/helix/users/follows?to_id=${id}`,
-    {
-      headers: {
-        'Client-Id': `${process.env.CLIENT_ID}`,
-        Authorization: `Bearer ${process.env.AUTHORIZATION}`,
-      },
-    }
-  );
-  // Caches user into memory using Redis
-  redisClient.setEx(username, DEFAULT_EXPIRATION, JSON.stringify(data.total));
-
-  return data.total; // Follower count
-};
 
 // Build to use when deploying to heroku
 if (process.env.NODE_ENV === 'production') {
