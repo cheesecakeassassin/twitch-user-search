@@ -87,16 +87,16 @@ app.get('/users/:username', async (req, res) => {
         redisClient.setEx(`_${username}`, DEFAULT_EXPIRATION, username);
         redisClient.setEx(username, DEFAULT_EXPIRATION, DEFAULT_FOLLOWERS);
 
-        // Returns my channel information
+        // Returns my channel information after caching
         return res.status(200).json({
           cacheStatus: 'Success!',
-          user: DEFAULT_USERNAME,
+          user: username,
           followers: DEFAULT_FOLLOWERS,
         });
       } else {
-        // If my channel is already cached
+        // Runs if my channel is already cached
         return res.status(200).json({
-          user: DEFAULT_USERNAME,
+          user: username,
           followers: DEFAULT_FOLLOWERS,
           cache_expiration: await redisClient.ttl(username),
         });
