@@ -39,8 +39,6 @@ A single page application that uses the Twitch API to search Twitch channels, re
 **Skip installation and jump straight into the deployed app!**
 https://twitch-user-search.herokuapp.com/
 
-**On the deploymed app, you can make direct calls to the API with ```/users/<username>``` endpoint, you will even be given the time until the cache expires for a previously searched user**
-
 **Search the name of your favorite Twitch channels**
 
 ![beforeUserSearch](https://user-images.githubusercontent.com/7333111/168503445-1e77d078-a835-494c-9044-0d2852855b8a.png)
